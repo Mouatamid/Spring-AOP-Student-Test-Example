@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+    <aop:aspectj-autoproxy/>
+    <bean id="student" class="org.mouatamid.model.Student">
+        <property name="studentId" value="Q33546"/>
+        <property name="name" value="Imad"/>
+        <property name="age" value="16" />
+    </bean>
+    <bean id="studentService" class="org.mouatamid.service.StudentService">
+        <property name="student" ref="student"/>
+    </bean>
+    <bean name="modelAspect" class="org.mouatamid.aspect.ModelAspect"/>
+    <bean name="serviceAspect" class="org.mouatamid.aspect.ServiceAspect" />
+
+</beans>
